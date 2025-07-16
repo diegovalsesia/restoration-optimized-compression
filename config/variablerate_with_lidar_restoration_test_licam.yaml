@@ -1,0 +1,40 @@
+model: "tic_promptmodel_MS_encdec"
+dataset: ""
+dataset_path: "Training/blurred_resized"
+depth_train: "Training/lowres_depth_resized"
+gt_train: "Training/wide_resized"
+kodak_path: "/home/valsesia/Scripts/restoration-optimized-compression/data/LICAM/test/blur"
+depth_test: "/home/valsesia/Scripts/restoration-optimized-compression/data/LICAM/test/depth"
+gt_test: "/home/valsesia/Scripts/restoration-optimized-compression/data/LICAM/test/sharp"
+input_resolution: 256
+epochs: 100
+learning_rate: 1.e-4
+num_workers: 4
+quality_level: 4
+batch_size: 2 # x4 due to accumulation in code
+test_batch_size: 1
+aux_learning_rate: 1.e-3
+patch_size: 256
+cuda: True
+gpu_id: 1
+save: True
+clip_max_norm: 1.0
+name: "INDEP_LICAM_TEST_STRIP"
+exp_name: "INDEP_LICAM_TEST_STRIP"
+seed: 42
+root: "/home/valsesia/Scripts/restoration-optimized-compression/experiments"
+#checkpoint: "/home/valsesia/Scripts/restoration-optimized-compression/pretrained/orig/checkpoint_100.pth.tar" # for original
+checkpoint: "/home/valsesia/Scripts/restoration-optimized-compression/pretrained/independent/compressor_indep_licam.pth.tar" # for indep
+#checkpoint: "/home/valsesia/Scripts/restoration-optimized-compression/pretrained/optimized/compressor_joint_catstripformer_licam.pth.tar" # for indep
+LOCATION: 'prepend'
+DEEP: True
+NUM_TOKENS: 16
+INITIATION: 'random'
+PROJECT: -1
+DROPOUT: 0.
+TRANSFER_TYPE: 'prompt'
+ARCHITECT: 'both'
+WINDOW: 'same' 
+RETURN_ATTENTION: False
+MASK_DOWNSAMPLE: 2
+TEST: True

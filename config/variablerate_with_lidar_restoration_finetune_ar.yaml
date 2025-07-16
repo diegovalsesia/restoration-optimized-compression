@@ -1,0 +1,45 @@
+model: "tic_promptmodel_MS_encdec"
+dataset: ""
+# dataset_path: "/home/valsesia/Scripts/restoration-optimized-compression/data/LICAM/pretrain/blur"
+# depth_train: "/home/valsesia/Scripts/restoration-optimized-compression/data/LICAM/pretrain/depth"
+# gt_train: "/home/valsesia/Scripts/restoration-optimized-compression/data/LICAM/pretrain/gt"
+# kodak_path: "/home/valsesia/Scripts/restoration-optimized-compression/data/LICAM/test/blur"
+# depth_test: "/home/valsesia/Scripts/restoration-optimized-compression/data/LICAM/test/depth"
+# gt_test: "/home/valsesia/Scripts/restoration-optimized-compression/data/LICAM/test/gt"
+dataset_path: "/home/valsesia/Scripts/restoration-optimized-compression/data/ArkitScenes/Training/blurred_resized"
+depth_train: "/home/valsesia/Scripts/restoration-optimized-compression/data/ArkitScenes/Training/lowres_depth_resized"
+gt_train: "/home/valsesia/Scripts/restoration-optimized-compression/data/ArkitScenes/Training/wide_resized"
+kodak_path: "/home/valsesia/Scripts/restoration-optimized-compression/data/ArkitScenes/Validation/blurred1"
+depth_test: "/home/valsesia/Scripts/restoration-optimized-compression/data/ArkitScenes/Validation/lowres_depth_resized1"
+gt_test: "/home/valsesia/Scripts/restoration-optimized-compression/data/ArkitScenes/Validation/wide1"
+input_resolution: 256
+epochs: 100
+learning_rate: 1.e-5
+num_workers: 4
+quality_level: 4
+batch_size: 2 # x4 due to accumulation in code
+test_batch_size: 1
+aux_learning_rate: 1.e-5
+patch_size: 256
+cuda: True
+gpu_id: 4
+save: True
+clip_max_norm: 1.0
+name: "JOINT_FINETUNE_AR_STRIP"
+exp_name: "JOINT_FINETUNE_AR_STRIP"
+seed: 42
+root: "/home/valsesia/Scripts/restoration-optimized-compression/"
+checkpoint: "/home/valsesia/Scripts/restoration-optimized-compression/pretrained/independent/compressor_indep_ar.pth.tar"
+LOCATION: 'prepend'
+DEEP: True
+NUM_TOKENS: 16
+INITIATION: 'random'
+PROJECT: -1
+DROPOUT: 0.
+TRANSFER_TYPE: 'prompt'
+ARCHITECT: 'both'
+WINDOW: 'same' 
+RETURN_ATTENTION: False
+MASK_DOWNSAMPLE: 2
+TEST: False
+lambda_mul_debug: 1.0

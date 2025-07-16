@@ -1,0 +1,5 @@
+module RansLib [system] {
+    header "include/rans_interface.hpp"
+    requires cplusplus
+    export *
+}
