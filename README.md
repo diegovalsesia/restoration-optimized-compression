@@ -1,3 +1,4 @@
+![](logo.jpeg)
 
 # restoration-optimized-compression
 Lidar-guided image compression optimized for Lidar-guided restoration. In this repository a Lidar-guided image compression model is integrated with a Lidar-guided iamge restoration model for end-to-end optimization so that rate-distortion-after-restoration performance is maximized. 
