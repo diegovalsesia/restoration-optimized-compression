@@ -3,7 +3,7 @@
 # restoration-optimized-compression
 Lidar-guided image compression optimized for Lidar-guided restoration. In this repository a Lidar-guided image compression model is integrated with a Lidar-guided iamge restoration model for end-to-end optimization so that rate-distortion-after-restoration performance is maximized. 
 
-A demo is also provided with the source code of an iOS app that implements the restoration-optimized compressor on the smartphone via an Executoch exported model. Server-side decompression and restoration code is also provided for the demo.
+We also provide the source code of an iOS demo app that implements the restoration-optimized compressor on the smartphone via an Executoch exported model. Server-side decompression and restoration code is also provided for the demo.
 
 ## Install
 
@@ -26,8 +26,9 @@ python myscript.py -c ../config/myconfig.yaml
 Replace *myscript* with one of the ones available in the examples directory:
 
  - variablerate_with_lidar_with_restoration_finetune_mse.py: this allows end-to-end finetuning of compression and restoration with the MSE loss. Note it adds noise to training and testing data to simulate noisy data.
- - variablerate_with_lidar_with_restoration_finetune_mse.py: this allows end-to-end finetuning of compression and restoration with the LPIPS perceptual loss
+ - variablerate_with_lidar_with_restoration_finetune_lpips.py: this allows end-to-end finetuning of compression and restoration with the LPIPS perceptual loss
  - variablerate_with_lidar_with_restoration_test.py: test joint compression and restoration model
+
 Pretraining script for independent restorer and compression model are also available.
 
 Replace *myconfig* with one of the ones available in the examples directory. Make sure to change the paths to your own data and models. Restoration models need to be specified with the examples/config/KernelDepthDeblur.yaml (for training) and examples/config/KernelDepthDeblur_test.yaml (for testing) configuration files.
